@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/reg_sup_phone"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Reg_sup_phone">
+    <TextView
+        android:id="@+id/tvRegSupPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/relativeRegSupPhone"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="@string/tel"
+        android:textColor="@color/colorPrimary"
+        android:textSize="19dp" />
+
+    <RelativeLayout
+        android:id="@+id/relativeRegSupPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <EditText
+            android:id="@+id/editRegSupPhone"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_height="40dp"
+            android:background="@drawable/round_edtext"
+            android:hint="@string/inputtel"
+            android:inputType="phone"
+            android:singleLine="true"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/btRegSupPhone"
+            android:layout_width="match_parent"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:stateListAnimator="@null"
+            android:layout_height="40dp"
+            android:layout_below="@+id/editRegSupPhone"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_button"
+            android:text="@string/continued"
+            android:textColor="#FFFFFF"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            android:visibility="invisible"/>
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/hasRegSupPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:text="@string/alreadyhaveacc"
+        android:textColor="@color/colorPrimary"
+        android:textSize="11dp"/>
+
+    <ImageView
+        android:id="@+id/backRegSupPhone"
+        android:layout_width="41dp"
+        android:layout_height="42dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="14dp"
+        app:srcCompat="@drawable/ic_chevron_left_black_24dp" />
+
+
+</RelativeLayout>

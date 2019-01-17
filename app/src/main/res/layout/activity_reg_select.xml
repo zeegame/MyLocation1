@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Reg_Select">
+
+    <TextView
+        android:layout_above="@+id/whoru"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="70dp"
+        android:text="@string/whoareu"
+        android:textColor="@color/colorPrimary"
+        android:textSize="19dp" />
+
+    <RelativeLayout
+        android:id="@+id/whoru"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <Button
+            android:id="@+id/selectUser"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="2dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:stateListAnimator="@null"
+            android:background="@drawable/round_button"
+            android:text="@string/user"
+            android:textColor="#FFFFFF"
+            android:textSize="17dp"
+            android:textStyle="bold"
+            />
+
+        <Button
+            android:id="@+id/selectSup"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/selectUser"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:stateListAnimator="@null"
+            android:background="@drawable/round_button"
+            android:text="@string/suplier"
+            android:textColor="#FFFFFF"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/hasSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:text="@string/alreadyhaveacc"
+        android:textColor="@color/colorPrimary"
+        android:textSize="11dp"
+        />
+
+    <ImageView
+        android:id="@+id/backRegSelect"
+        android:layout_width="41dp"
+        android:layout_height="42dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="14dp"
+        android:src="@drawable/ic_chevron_left_black_24dp" />
+
+</RelativeLayout>

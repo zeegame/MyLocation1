@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_bg">
+
+    <ImageView
+        android:id="@+id/circle_img"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50sp" />
+
+    <ImageView
+        android:id="@+id/editimg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/circle_img"
+        android:layout_toEndOf="@+id/circle_img"
+        app:srcCompat="@drawable/ic_create_black_24dp" />
+
+    <LinearLayout
+        android:id="@+id/editUserEnd"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editimg"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/round_editprofile"
+        android:orientation="horizontal"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp">
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+
+            <TextView
+                android:id="@+id/tvProfileFname"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_alignEnd="@+id/tvProfileSSO"
+                android:gravity="center"
+                android:text="@string/namecoll" />
+
+            <TextView
+                android:id="@+id/tvProfileLname"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@+id/tvProfileFname"
+                android:layout_alignEnd="@+id/tvProfileSSO"
+                android:gravity="center"
+                android:text="@string/lastnamecoll" />
+
+            <TextView
+                android:id="@+id/tvProfilePhone"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@+id/tvProfileLname"
+                android:layout_alignEnd="@+id/tvProfileSSO"
+                android:gravity="center"
+                android:text="@string/phonecoll" />
+
+            <TextView
+                android:id="@+id/tvProfileEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@+id/tvProfilePhone"
+                android:layout_alignEnd="@+id/tvProfileSSO"
+                android:gravity="center"
+                android:text="@string/emailcoll" />
+
+            <TextView
+                android:id="@+id/tvProfileSSO"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@+id/tvProfileEmail"
+                android:gravity="center"
+                android:text="@string/ssocoll" />
+
+            <TextView
+                android:id="@+id/tvProfileAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:layout_below="@+id/tvProfileSSO"
+                android:layout_alignEnd="@+id/tvProfileSSO"
+                android:gravity="center"
+                android:text="@string/editaddresscoll" />
+
+            <TextView
+                android:id="@+id/usrProFname"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_toRightOf="@+id/tvProfileFname"
+                android:paddingStart="5dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="start" />
+
+            <TextView
+                android:id="@+id/usrProLname"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/usrProFname"
+                android:layout_toRightOf="@+id/tvProfileFname"
+                android:paddingStart="5dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="start" />
+
+            <TextView
+                android:id="@+id/usrProPhone"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/usrProLname"
+                android:layout_toRightOf="@+id/tvProfileFname"
+                android:paddingStart="5dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="start" />
+
+            <TextView
+                android:id="@+id/usrProEmail"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@+id/usrProPhone"
+                android:layout_toRightOf="@+id/tvProfileFname"
+                android:paddingStart="5dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="start" />
+
+            <TextView
+                android:id="@+id/usrProSSO"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_below="@id/usrProEmail"
+                android:layout_toRightOf="@+id/tvProfileFname"
+                android:paddingStart="5dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="start" />
+
+            <TextView
+                android:id="@+id/usrProAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/usrProSSO"
+                android:layout_toRightOf="@+id/tvProfileFname"
+                android:paddingStart="5dp"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="start" />
+        </RelativeLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnShow"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_below="@+id/circle_img"
+        android:layout_alignTop="@+id/editUserEnd"
+        android:layout_alignEnd="@+id/editUserEnd"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/ic_more_vert_black_24dp"
+        android:onClick="showPopup"
+        android:stateListAnimator="@null" />
+</RelativeLayout>

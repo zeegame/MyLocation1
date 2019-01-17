@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">\
+    <item
+        android:id="@+id/nav_suplist"
+        android:icon="@drawable/ic_list_black_24dp"
+        android:title="รายการทั้งหมด"/>
+    <item
+        android:id="@+id/nav_suphistory"
+        android:icon="@drawable/ic_history_black_24dp"
+        android:title="ประวัติ"/>
+    <item
+        android:id="@+id/nav_supprofile"
+        android:icon="@drawable/ic_person_black_24dp"
+        android:title="โปรไฟล์"/>
+
+</menu>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/transition_bt"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Reg_user_name">
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/relative1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+    <RelativeLayout
+        android:id="@+id/relativeReg_name"
+        android:gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/linearName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <EditText
+                android:id="@+id/editName"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="20dp"
+                android:background="@drawable/round_edittext"
+                android:hint="@string/name"
+                android:inputType="text"
+                android:paddingLeft="10dp"
+                android:textSize="15dp" />
+
+            <EditText
+                android:layout_alignRight="@+id/editName"
+                android:id="@+id/editUserLastName"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_marginRight="20dp"
+                android:layout_toRightOf="@+id/editName"
+                android:layout_marginLeft="20dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/round_edittext"
+                android:hint="@string/lastname"
+                android:inputType="text"
+                android:paddingLeft="10dp"
+                android:textSize="15dp" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btUserName"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/relativeReg_name"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/round_button"
+        android:enabled="false"
+        android:stateListAnimator="@null"
+        android:text="ดำเนินการต่อ"
+        android:textColor="#FFFFFF"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:visibility="invisible"/>
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/hasSelect"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="40dp"
+        android:text="คุณมีบัญชีอยู่แล้วใช่ไหม"
+        android:textColor="@color/TextColor"
+        android:textSize="11dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        />
+    <ImageView
+        android:id="@+id/backRegUserName"
+        android:layout_width="41dp"
+        android:layout_height="42dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="14dp"
+        app:srcCompat="@drawable/ic_chevron_left_black_24dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:layout_above="@+id/relative1"
+        android:text="โปรดระบุชื่อของคุณ"
+        android:textColor="@color/TextColor"
+        android:textSize="19dp" />
+
+
+</RelativeLayout>

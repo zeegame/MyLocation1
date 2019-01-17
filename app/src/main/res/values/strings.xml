@@ -1,0 +1,126 @@
+<resources>
+    <string name="app_name">MyLocation</string>
+
+    <string name="email">อีเมล</string>
+    <string name="password">รหัสผ่าน</string>
+    <string name="login">ลงชื่อเข้าใช้</string>
+    <string name="or">หรือ</string>
+    <string name="register">ลงทะเบียน</string>
+    <string name="forgetpassword">ลืมรหัสผ่าน?</string>
+    <string name="user">ผู้ใช้งานทั่วไป</string>
+    <string name="suplier">ผู้ให้บริการ</string>
+    <string name="whoareu">คุณคือใคร?</string>
+    <string name="alreadyhaveacc">คุณมีบัญชีอยู่แล้วใช่ไหม</string>
+    <string name="joinforgan">เข้าร่วม FOrgan</string>
+    <string name="fewstep">เพียงไม่กี่ขั้นตอน</string>
+    <string name="easycreate">เราจะช่วยสร้างบัญชีผู้ใช้ด้วยขั้นตอนง่ายๆ</string>
+    <string name="begin">เริ่มต้นใช้งาน</string>
+    <string name="inputemail">ป้อนที่อยู่อีเมล</string>
+    <string name="createpass">สร้างรหัสผ่าน</string>
+    <string name="passrequire">ป้อนอักขระอย่างน้อยหกตัวให้ผสมกันทั้งตัวเลข</string>
+    <string name="passrequire2">ตัวอักษรพิมพ์เล็ก และพิมพ์ใหญ่</string>
+    <string name="tel">โปรดระบุหมายเลขโทรศัพท์</string>
+    <string name="inputtel">ป้อนหมายเลขโทรศัพท์</string>
+    <string name="emailplz">โปรดระบุที่อยู่อีเมล</string>
+    <string name="fgpass">ป้อนอีเมลของคุณเพื่อตั้งรหัสผ่านใหม่</string>
+
+    <string name="home">หน้าหลัก</string>
+    <string name="addorder">สั่งสินค้า</string>
+    <string name="history">ประวัติ</string>
+    <string name="profile">โปรไฟล์ของฉัน</string>
+
+    <string name="require_organ">อวัยวะที่ต้องการ</string>
+    <string name="No_select_organ">โปรดเลือกอวัยวะที่ต้องการ</string>
+
+    <string name="Orderlist_supplier">รายการสั่งทั้งหมด</string>
+    <string name="find">ค้นหา…</string>
+    <string name="orderid">หมายเลขรายการ</string>
+    <string name="ordername">ชื่อสินค้า</string>
+    <string name="orderstatus">สถานะ</string>
+
+    <string name="okay">ตกลง</string>
+    <string name="continued">ดำเนินการต่อ</string>
+    <string name="nexttime">ไว้ทีหลัง</string>
+
+    <string name="suppinfo">โปรดระบุข้อมูลของหน่วยงาน</string>
+    <string name="suppid">รหัสหน่วยงาน</string>
+    <string name="suppname">ชื่อหน่วยงาน</string>
+
+    <string name="urname">โปรดระบุชื่อของคุณ</string>
+    <string name="name">ชื่อ</string>
+    <string name="lastname">นามสกุล</string>
+    <string name="ursso">โปรดระบุหมายเลขบัตรประชาชนของคุณ</string>
+    <string name="inputsso">ป้อนหมายเลขบัตรประชาชน 13 หลัก</string>
+
+    <string name="invalidData">ข้อมูลไม่ถูกต้อง</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="organ_photo">เลือกรูปอวัยวะ</string>
+    <string name="detail">รายละเอียดเพิ่มเติม</string>
+    <string name="plsEntName">กรุณาใส่ชื่อ</string>
+    <string name="plsEntLName">กรุณาใส่นามสกุล</string>
+    <string name="plsEntPhone">กรุณาใส่หมายเลขโทรศัพท์มือถือ</string>
+    <string name="plsEntNumTrue">กรุณาใส่หมายเลขโทรศัพท์ให้ครบ 10 หลัก</string>
+    <string name="plsEntEmail">กรุณาใส่อีเมล</string>
+    <string name="plsEntID">กรุณาใส่หมายเลขบัตรประจำตัวประชาชน</string>
+    <string name="plsEntTrueID">กรุณาใส่หมายเลขบัตรประจำตัวประชาชน 13 หลัก</string>
+    <string name="plsEntPassWord">กรุณาตั้งรหัสผ่าน</string>
+    <string name="plsEntTruePass">กรุณาตั้งรหัสผ่านอย่างน้อย 6 ตัว</string>
+    <string name="plsEntSupID">กรุณาใส่รหัสหน่วยงาน</string>
+    <string name="plsEntSupName">กรุณาใส่ชื่อหน่วยงาน</string>
+    <string name="selectaddress">เลือกที่อยู่</string>
+    <string name="press2exit">กดอีกครั้งเพื่อออก</string>
+    <string name="address">ที่อยู่</string>
+    <string name="noaddress">ไม่มีข้อมูลที่อยู่</string>
+    <string name="newaddress">เพิ่มที่อยู่ใหม่</string>
+    <string name="phone">โทรศัพท์</string>
+    <string name="sso">บัตรประชาชน</string>
+    <string name="editaddress">ที่อยู่</string>
+    <string name="addaddress">เพิ่มที่อยู่</string>
+    <string name="road">ถนน</string>
+    <string name="district">แขวง/ตำบล</string>
+    <string name="amphoe">เขต/อำเภอ</string>
+    <string name="province">จังหวัด</string>
+    <string name="postcode">รหัสไปรษณีย์</string>
+    <string name="nulldata">กรุณาระบุ</string>
+    <string name="comfirmaddress">ยืนยันที่อยู่</string>
+    <string name="comfirminfo">ยืนยันข้อมูล</string>
+    <string name="organ_images">รูปอวัยวะ</string>
+    <string name="edit">แก้ไข</string>
+    <string name="changepassword">เปลี่ยนรหัสผ่าน</string>
+    <string name="exit">ออกจากระบบ</string>
+    <string name="confirm">ยืนยัน</string>
+    <string name="invalidEmail">กรุณาระบุอีเมลที่ถูกต้อง</string>
+    <string name="usedEmail">อีเมลนี้ได้ถูกใช้งานแล้ว</string>
+    <string name="plsWait">กรุณารอสักครู่...</string>
+    <string name="cancel">ยกเลิก</string>
+    <string name="editprofile">แก้ไขข้อมูล</string>
+    <string name="orderID">รหัสรายการสั่ง :</string>
+    <string name="product">ชื่อสินค้า :</string>
+    <string name="picture">รูปภาพ</string>
+    <string name="namecoll">ชื่อ :</string>
+    <string name="lastnamecoll">นามสกุล :</string>
+    <string name="ssocoll">บัตรประชาชน :</string>
+    <string name="editaddresscoll">ที่อยู่ :</string>
+    <string name="suppidcoll">รหัสหน่วยงาน :</string>
+    <string name="suppnamecoll">ชื่อหน่วยงาน :</string>
+    <string name="phonecoll">โทรศัพท์ :</string>
+    <string name="emailcoll">อีเมล :</string>
+    <string name="checkingData">ตรวจสอบข้อมูล</string>
+    <string name="status">สถานะ :</string>
+    <string name="fistname">ชื่อ :</string>
+    <string name="detail1">รายละเอียด</string>
+    <string name="connetplz">โปรดเชื่อมต่ออินเตอร์เน็ต</string>
+    <string name="hello">สวัสดี</string>
+    <string name="perTitle">คุณ</string>
+    <string name="orderPrefix">&#160;รายการ</string>
+    <string name="allOrderCount">คุณสั่งไปแล้วทั้งหมด</string>
+    <string name="finishedOrder">รายการที่สำเร็จ</string>
+    <string name="onGoingWork">รายการที่กำลังดำเนินการ</string>
+    <string name="uploadorder">กำลังสร้างรายการสั่ง...</string>
+    <string name="ordercomplete">ทำการสั่งเรียบร้อย เป็นรายการสั่งที่</string>
+    <string name="googleLoginErr">ไม่สามารถเชื่อต่อกับ Google ได้ กรุณาลองใหม่ในภายหลัง</string>
+    <string name="signInComplete">เข้าสู่ระบบสำเร็จ</string>
+    <string name="signInFailed">ไม่สามารถเข้าสู่ระบบได้</string>
+</resources>

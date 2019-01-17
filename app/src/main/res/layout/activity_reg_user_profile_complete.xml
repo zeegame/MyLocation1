@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Reg_user_profile_complete"
+    android:background="@drawable/bg_gradient">
+
+
+    <TextView
+        android:id="@+id/congrats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="100dp"
+        android:text="ยินดีด้วย!"
+        android:textColor="#ffff"
+        android:textSize="25dp"
+        android:layout_marginTop="160dp"/>
+
+    <TextView
+        android:id="@+id/ready"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/letStart"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:text="บัญชีของคุณพร้อมใช้งานแล้ว"
+        android:textColor="#ffff"
+        android:layout_marginBottom="70dp" />
+
+    <Button
+        android:id="@+id/letStart"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@+id/congrats"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/round_btregiscomplrte"
+        android:stateListAnimator="@null"
+        android:text="เริ่มต้นใช้งาน"
+        android:textColor="@color/bt_regis_comp"
+        android:textSize="17dp"
+        android:textStyle="bold"
+        android:visibility="visible" />
+
+</RelativeLayout>

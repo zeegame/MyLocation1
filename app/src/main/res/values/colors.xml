@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6A98FF</color>
+    <color name="colorPrimaryDark">#557ACC</color>
+    <color name="topbarComplete">#29F399</color>
+    <color name="bt_regis_comp">#0BB5E1</color>
+    <color name="colorAccent">#6A98FF</color>
+    <color name="app_bg">#F5F5F5</color>
+    <color name="bottom_nav_item_bg">#E4E7E9</color>
+    <color name="TitleText">#F0F5FF</color>
+    <color name="TextColor">#6A98FF</color>
+    <color name="ButtonColor">#6A98FF</color>
+    <color name="disabled">#E4E7E9</color>
+    <color name="white">#FFFFFF</color>
+
+</resources>
