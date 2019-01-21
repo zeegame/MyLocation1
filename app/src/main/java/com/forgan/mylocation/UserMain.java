@@ -4,13 +4,10 @@ import android.Manifest;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
-import androidx.core.app.FragmentActivity;
 import android.os.Bundle;
 import androidx.core.content.ContextCompat;
 
@@ -29,6 +26,12 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.GeoPoint;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import androidx.fragment.app.FragmentActivity;
 
@@ -44,11 +47,18 @@ public class UserMain extends FragmentActivity implements
     private Marker currentUserLocationMarker;
     private static final int Request_User_Location_Code = 99;
 
+    private FirebaseAuth mAuth;
+    private FirebaseUser currentUser;
+    private Map<String, Object> users = new HashMap<>();
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
+        setContentView(R.layout.activity_maps_user);
+        mAuth = FirebaseAuth.getInstance();
+        currentUser = mAuth.getCurrentUser();
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             checkUserLocationPermission();
@@ -140,6 +150,11 @@ public class UserMain extends FragmentActivity implements
         markerOptions.position(latLng);
         markerOptions.title("User Current Location");
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+
+        //todo put latlng to Cloud Firestore
+        GeoPoint Geo = new GeoPoint (location.getLatitude(), location.getLongitude());
+        users.put("geo", Geo );
+        FirebaseHelper.update("users", currentUser.getEmail(), users);
 
         currentUserLocationMarker = mMap.addMarker(markerOptions);
 

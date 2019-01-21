@@ -73,6 +73,7 @@ public class FirebaseHelper {
 
     //update into database
     public static void update(String collectionID, String docID, Map<String, Object> newData) {
+        Log.i(TAG, "Start update database");
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection(collectionID).document(docID)
                 .update(newData)
