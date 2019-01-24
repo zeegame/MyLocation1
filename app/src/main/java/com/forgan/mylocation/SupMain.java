@@ -1,7 +1,9 @@
 package com.forgan.mylocation;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.icu.text.DisplayContext;
 import android.location.Location;
 import android.os.Build;
 
@@ -13,6 +15,8 @@ import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -28,10 +32,19 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.GeoPoint;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -51,7 +64,12 @@ public class SupMain extends FragmentActivity implements
     private FirebaseAuth mAuth;
     private FirebaseUser currentUser;
     private Map<String, Object> users = new HashMap<>();
+    private static ArrayList<DisplayContext.Type> mArrayList = new ArrayList<>();
 
+    private static final String TAG = "FirebaseHelper";
+    private FirebaseFirestore db;
+    private Button exit;
+    private Map<String, Object> key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +78,11 @@ public class SupMain extends FragmentActivity implements
         setContentView(R.layout.activity_maps_sup);
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
+
+        exit = (Button) findViewById(R.id.exitS);
+
+        getListItems();
+       // Log.d(TAG, "onCreate: LIST IN ONCREATE = " + mArrayList);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             checkUserLocationPermission();
@@ -70,6 +93,16 @@ public class SupMain extends FragmentActivity implements
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent toRegUserPhone = new Intent(SupMain.this, Splash.class);
+                startActivity(toRegUserPhone);
+
+            }
+        });
     }
 
 
@@ -153,13 +186,16 @@ public class SupMain extends FragmentActivity implements
         markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
 
         //todo put latlng to Cloud Firestore
-        GeoPoint Geo = new GeoPoint (location.getLatitude(), location.getLongitude());
-        users.put("geo", Geo );
+        GeoPoint myGeo = new GeoPoint (location.getLatitude(), location.getLongitude());
+        users.put("geo", myGeo );
         FirebaseHelper.update("users", currentUser.getEmail(), users);
+        //todo get geo from Firestore
+        FirebaseHelper.get("users",currentUser.getEmail(),key);
+        Log.i(TAG,"data"+ users);
+
+
 
         currentUserLocationMarker = mMap.addMarker(markerOptions);
-
-
 
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
         mMap.animateCamera(CameraUpdateFactory.zoomBy(12));
@@ -194,4 +230,42 @@ public class SupMain extends FragmentActivity implements
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
 
     }
+
+    private void getListItems() {
+//        DocumentReference mFirebaseFirestore;
+//        mFirebaseFirestore.collection("users").get()
+//                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//                    @Override
+//                    public void onSuccess(QuerySnapshot documentSnapshots) {
+//                        if (documentSnapshots.isEmpty()) {
+//                            //Log.d(TAG, "onSuccess: LIST EMPTY");
+//                            return;
+//                        } else {
+//                            for (DocumentSnapshot documentSnapshot : documentSnapshots) {
+//                                if (documentSnapshot.exists()) {
+//                                    //Log.d(TAG, "onSuccess: DOCUMENT" + documentSnapshot.getId() + " ; " + documentSnapshot.getData());
+//                                    DocumentReference documentReference1 = FirebaseFirestore.getInstance().document("some path");
+//                                    documentReference1.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+//                                        @Override
+//                                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+//                                            DisplayContext.Type type= documentSnapshot.toObject(DisplayContext.Type.class);
+//                                            //Log.d(TAG, "onSuccess: " + type.toString());
+//                                            mArrayList.add(type);
+//                                            //Log.d(TAG, "onSuccess: " + mArrayList);
+//                                        /* these logs here display correct data but when
+//                                         I log it in onCreate() method it's empty*/
+//                                        }
+//                                    });
+//                                }
+//                            }
+//                        }
+//                    }
+//                }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                Toast.makeText(getApplicationContext(), "Error getting data!!!", Toast.LENGTH_LONG).show();
+//            }
+//        });
+    }
+
 }

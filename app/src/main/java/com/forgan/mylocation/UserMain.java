@@ -1,6 +1,7 @@
 package com.forgan.mylocation;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Build;
@@ -11,6 +12,8 @@ import androidx.core.app.ActivityCompat;
 import android.os.Bundle;
 import androidx.core.content.ContextCompat;
 
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -51,6 +54,8 @@ public class UserMain extends FragmentActivity implements
     private FirebaseUser currentUser;
     private Map<String, Object> users = new HashMap<>();
 
+    private Button exit;
+
 
 
     @Override
@@ -59,6 +64,7 @@ public class UserMain extends FragmentActivity implements
         setContentView(R.layout.activity_maps_user);
         mAuth = FirebaseAuth.getInstance();
         currentUser = mAuth.getCurrentUser();
+        exit = (Button) findViewById(R.id.exitU);
 
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             checkUserLocationPermission();
@@ -69,6 +75,16 @@ public class UserMain extends FragmentActivity implements
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        exit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().signOut();
+                Intent toRegUserPhone = new Intent(UserMain.this, Splash.class);
+                startActivity(toRegUserPhone);
+
+            }
+        });
     }
 
 

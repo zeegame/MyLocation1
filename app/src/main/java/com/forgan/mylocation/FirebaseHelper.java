@@ -144,8 +144,12 @@ public class FirebaseHelper {
                 });
     }
 
-    public static Object get(String key) {
+    public static Object get(String collectionID, String docID, Map<String, Object> key) {
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection(collectionID).document(docID);
+        Log.i(TAG, "Data got");
         return data.get(key);
+
     }
 
     //return logData
@@ -331,5 +335,6 @@ public class FirebaseHelper {
         tmpString2 = null;
         tmpString3 = null;
     }
+
 
 }
