@@ -69,7 +69,6 @@ public class SupMain extends FragmentActivity implements
     private static final String TAG = "FirebaseHelper";
     private FirebaseFirestore db;
     private Button exit;
-    private Map<String, Object> key;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -189,9 +188,7 @@ public class SupMain extends FragmentActivity implements
         GeoPoint myGeo = new GeoPoint (location.getLatitude(), location.getLongitude());
         users.put("geo", myGeo );
         FirebaseHelper.update("users", currentUser.getEmail(), users);
-        //todo get geo from Firestore
-        FirebaseHelper.get("users",currentUser.getEmail(),key);
-        Log.i(TAG,"data"+ users);
+
 
 
 
