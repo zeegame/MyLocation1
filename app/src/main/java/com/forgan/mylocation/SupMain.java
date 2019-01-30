@@ -40,12 +40,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.GeoPoint;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class SupMain extends FragmentActivity implements
@@ -59,6 +63,7 @@ public class SupMain extends FragmentActivity implements
     private LocationRequest locationRequest;
     private Location lastLocation;
     private Marker currentUserLocationMarker;
+    private Marker patientUserLocationMarker;
     private static final int Request_User_Location_Code = 99;
 
     private FirebaseAuth mAuth;
@@ -69,6 +74,7 @@ public class SupMain extends FragmentActivity implements
     private static final String TAG = "FirebaseHelper";
     private FirebaseFirestore db;
     private Button exit;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +123,31 @@ public class SupMain extends FragmentActivity implements
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        if(patientUserLocationMarker != null){
+            patientUserLocationMarker.remove();
+        }
+
+        db = FirebaseFirestore.getInstance();
+        Query documentReference = db.collection("users").whereEqualTo("type","user");
+        documentReference.addSnapshotListener(new EventListener<QuerySnapshot>() {
+            @Override
+            public void onEvent(@javax.annotation.Nullable QuerySnapshot queryDocumentSnapshots, @javax.annotation.Nullable FirebaseFirestoreException e) {
+                List<DocumentSnapshot> documents = queryDocumentSnapshots.getDocuments();
+                for (DocumentSnapshot document : documents) {
+                    GeoPoint geo = document.getGeoPoint("geo");
+                    Log.i(TAG, String.valueOf(document.getGeoPoint("geo")));
+                    LatLng latLng = new LatLng(geo.getLatitude(), geo.getLongitude());
+
+                    MarkerOptions markerOptions = new MarkerOptions();
+                    markerOptions.position(latLng);
+                    markerOptions.title("Patient user Location");
+                    markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+                    patientUserLocationMarker = mMap.addMarker(markerOptions);
+                }
+            }
+        });
+
+        
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
         {
@@ -264,5 +295,6 @@ public class SupMain extends FragmentActivity implements
 //            }
 //        });
     }
+
 
 }
