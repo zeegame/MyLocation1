@@ -123,6 +123,18 @@ public class SupMain extends FragmentActivity implements
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+        GoogleMap.OnInfoWindowClickListener onInfoWindowClickListener = new GoogleMap.OnInfoWindowClickListener() {
+            @Override
+            public void onInfoWindowClick(Marker marker) {
+                Toast.makeText(SupMain.this,"onclick",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(SupMain.this,ClickableTitleMarker.class);
+                startActivity(intent);
+            }
+        };
+        mMap.setOnInfoWindowClickListener(onInfoWindowClickListener);
+
+        //mark a patient location
         if(patientUserLocationMarker != null){
             patientUserLocationMarker.remove();
         }
@@ -134,20 +146,23 @@ public class SupMain extends FragmentActivity implements
             public void onEvent(@javax.annotation.Nullable QuerySnapshot queryDocumentSnapshots, @javax.annotation.Nullable FirebaseFirestoreException e) {
                 List<DocumentSnapshot> documents = queryDocumentSnapshots.getDocuments();
                 for (DocumentSnapshot document : documents) {
+
+                    String name = document.getString("Fname");
                     GeoPoint geo = document.getGeoPoint("geo");
-                    Log.i(TAG, String.valueOf(document.getGeoPoint("geo")));
+                    Log.i(TAG, String.valueOf(name)+"=>"+String.valueOf(geo));
                     LatLng latLng = new LatLng(geo.getLatitude(), geo.getLongitude());
 
                     MarkerOptions markerOptions = new MarkerOptions();
                     markerOptions.position(latLng);
-                    markerOptions.title("Patient user Location");
+                    markerOptions.title(name);
                     markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
                     patientUserLocationMarker = mMap.addMarker(markerOptions);
                 }
             }
         });
+        //finish mark a patient location
 
-        
+
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED)
         {
@@ -295,6 +310,4 @@ public class SupMain extends FragmentActivity implements
 //            }
 //        });
     }
-
-
-}
+       }
